@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   padding: 30px 10px;
+  
 }
 
 * {
@@ -31,7 +32,7 @@ body {
 
 /* -----Feed----- */
 .page-banner {
-  position: -webkit-sticky;
+  position: sticky;
 }
 .page-title {
   size: 100px;
@@ -40,8 +41,14 @@ body {
   padding-top: 40px;
   background-color: rgba(181, 237, 236, 0.9);
   border-radius: 10px;
+  position: sticky;
+  margin-top: -25px;
+  
 
   
+}
+ .demon  {
+  height: 100px;
 }
 
 .scroll {

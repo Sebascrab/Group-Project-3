@@ -9,6 +9,7 @@ import { Button, Col, Container, Row } from "react-bootstrap"
 
 import { BsCheckCircleFill } from "react-icons/bs";
 
+import anime1 from '../assets/images/demon-slayer.png'
 import avatarPic from '../assets/images/Sebas-dog.jpeg'
 import dummyPic1 from '../assets/images/Sebas-travel.jpeg'
 import dummyPic2 from '../assets/images/land-rover.jpeg'
@@ -17,15 +18,22 @@ import Avatar from 'react-avatar';
 
 
 
+
 export const Feed = () => {
     return (
         //    header
         <section>
-            <Container>
-                <div className='page-banner'>
+            <div className='page-banner'>
                 <h2 className='page-title'>Home</h2>
-                </div>
+                
+            </div>
+            <Container>
+
                 <Row className='align-items-center'>
+                    <Col md={3}>
+                    </Col>
+                    
+
                     <Col className='scroll' md={6}>
                         <div>
                             <div className='feed-header'>
@@ -54,13 +62,13 @@ export const Feed = () => {
                                 <div className='post-header'>
                                     <div className='post-header-text'>
                                         <h3>Sebastian<span>
-                                        <BsCheckCircleFill />
+                                            <BsCheckCircleFill />
                                         </span>
                                         </h3>
                                         <h6>@sebascrab</h6>
                                     </div>
                                     <div className='post-header-description'>
-                                        Wishing I was in Taiwan! 
+                                        Wishing I was in Taiwan!
                                     </div>
                                     <img className='post-image' src={dummyPic1} alt='Taiwan Pic dummy'></img>
                                     <div className='post-footer'>5:26 pm 07/07/22</div>
@@ -75,13 +83,13 @@ export const Feed = () => {
                                 <div className='post-header'>
                                     <div className='post-header-text'>
                                         <h3>Sebastian<span>
-                                        <BsCheckCircleFill />
+                                            <BsCheckCircleFill />
                                         </span>
                                         </h3>
                                         <h6>@sebascrab</h6>
                                     </div>
                                     <div className='post-header-description'>
-                                        What I looked liked when creepying on customers... 
+                                        What I looked liked when creeping on customers...
                                     </div>
                                     <img className='post-image' src={dummyPic2} alt='Taiwan Pic dummy'></img>
                                     <div className='post-footer'>1:02 am 07/07/21</div>
@@ -90,7 +98,7 @@ export const Feed = () => {
                         </div>
 
                     </Col>
-                    <Col md={4}>
+                    <Col md={3} >
                         {/* advertising */}
                     </Col>
                 </Row>
