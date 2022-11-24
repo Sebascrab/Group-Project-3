@@ -13,6 +13,8 @@ import {
     from 'mdb-react-ui-kit';
 
 function SignUp() {
+
+    
     return (
         <div>
             <MDBContainer fluid className='vh-100' id='signUpBackground'>

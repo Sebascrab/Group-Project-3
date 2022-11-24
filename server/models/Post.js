@@ -58,10 +58,12 @@ const postSchema = new Schema(
             get: (date) => dateFormat(date)
         },
 
-        username: {
-            type: String,
-            required: true
-        },
+        user: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "User"
+            }
+        ],
 
         comments: [commentSchema]
     },
