@@ -13,13 +13,13 @@ import avatarPic from '../assets/images/Sebas-dog.jpeg'
 import Avatar from 'react-avatar';
 
 import { useState, useEffect } from 'react';
-import  API  from '../utils/API';
+import API from '../utils/API';
 
 export const Feed = () => {
 
     const [postData, setPostData] = useState([])
-    const getPostData = async() => {
-        const response = await API.postFeed() 
+    const getPostData = async () => {
+        const response = await API.postFeed()
         const data = await response.json()
         setPostData(data);
         console.log(data)
@@ -33,7 +33,7 @@ export const Feed = () => {
             <div className='page-banner'>
                 <h1 className='page-title'><strong>Home</strong></h1>
             </div>
-            <Container>
+            <Container className="vh-100">
                 <Row className='align-items-center'>
                     <Col md={2}>
                     </Col>
@@ -58,7 +58,7 @@ export const Feed = () => {
                         {/* post output */}
                         {postData.length > 0 ? postData.map(post => (
                             <Post post={post} />
-                        )): null }
+                        )) : null}
                     </Col>
                     <Col md={2}>
                     </Col>

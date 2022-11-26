@@ -34,7 +34,7 @@ function SignIn() {
 
             <MDBCard className='bg-dark text-white my-5 mx-auto' style={{ borderRadius: '1rem', maxWidth: '400px' }}>
               <MDBCardBody className='p-5 d-flex flex-column align-items-center mx-auto w-100'>
-                <img src={ Logo } id="logoImageLogin"/>
+                <img src={ Logo } id="logoImageLogin" alt="logo"/>
                 <h3 className="fw-bold mb-2 text-uppercase">Log In</h3>
                 <p className="text-white-50 mb-5 mx-auto text-center">Please enter your Username and Password</p>
 
