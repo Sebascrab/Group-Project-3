@@ -1,14 +1,54 @@
-import React from 'react';
+// Once Signed in:
+// Feed of posts.
+// Assorted Advertisements. 
+// Emoji Reactions
+// -- SEA BASS
+import '../App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Col, Container, Row, Dropdown, Form, InputGroup } from "react-bootstrap"
 
-import { Button, Col, Container, Row, Dropdown, Form } from "react-bootstrap"
-import Avatar from 'react-avatar';
-import dummyPic1 from '../../assets/images/Sebas-travel.jpeg'
-import avatarPic from '../../assets/images/Sebas-travel.jpeg'
 import { BsCheckCircleFill } from "react-icons/bs";
-export const Post = () => {
-    return(
-        <section>
-            <Container className='timeline'>
+import { BsFillChatLeftDotsFill } from "react-icons/bs"
+
+import avatarPic from '../assets/images/Sebas-dog.jpeg'
+import dummyPic1 from '../assets/images/Sebas-travel.jpeg'
+import dummyPic2 from '../assets/images/land-rover.jpeg'
+import Avatar from 'react-avatar';
+
+
+
+
+export const Feed = () => {
+    return (
+        //    header
+        <section className='h-100'>
+            <div className='page-banner'>
+                <h1 className='page-title'><strong>Home</strong></h1>
+            </div>
+            <Container>
+                <Row className='align-items-center'>
+                    <Col md={2}>
+                    </Col>
+                    <Col className='scroll' md={8}>
+                        <div>
+                            <div className='feed-header'>
+                                <h2>Feed</h2>
+                            </div>
+                            {/* post */}
+                            <div className='post-box'>
+                                <form>
+                                    <div className='post-box-input'>
+                                        <Avatar className='avatar' src={avatarPic} />
+                                        <input placeholder="What's Happening"></input>
+                                    </div>
+                                    <Button className='post-button' variant="outline-info">
+                                        Post
+                                    </Button>
+                                </form>
+                            </div>
+                        </div>
+                        {/* Post */}
+                        <Container className='timeline'>
                             <Row className='post-user-box'>
                                 <Col xs lg="2">
                                     <Avatar className='avatar' src={avatarPic} />
@@ -72,6 +112,11 @@ export const Post = () => {
                                 </Col>
                             </Row>
                         </Container>
+                    </Col>
+                    <Col md={2}>
+                    </Col>
+                </Row>
+            </Container>
         </section>
     )
 }
