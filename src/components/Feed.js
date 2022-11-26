@@ -3,7 +3,7 @@
 // Assorted Advertisements. 
 // Emoji Reactions
 // -- SEA BASS
-import '../App.css'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { Post } from './post modal/Post'
@@ -12,10 +12,21 @@ import { Post } from './post modal/Post'
 import avatarPic from '../assets/images/Sebas-dog.jpeg'
 import Avatar from 'react-avatar';
 
-
-
+import { useState, useEffect } from 'react';
+import  API  from '../utils/API';
 
 export const Feed = () => {
+
+    const [postData, setPostData] = useState([])
+    const getPostData = async() => {
+        const response = await API.postFeed() 
+        const data = await response.json()
+        setPostData(data);
+        console.log(data)
+    }
+    useEffect(() => {
+        getPostData()
+    }, [])
     return (
         //    header
         <section className=''>
@@ -45,7 +56,9 @@ export const Feed = () => {
                             </div>
                         </div>
                         {/* post output */}
-                        <Post/>
+                        {postData.length > 0 ? postData.map(post => (
+                            <Post post={post} />
+                        )): null }
                     </Col>
                     <Col md={2}>
                     </Col>

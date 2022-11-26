@@ -5,33 +5,36 @@ import Avatar from 'react-avatar';
 import dummyPic1 from '../../assets/images/Sebas-travel.jpeg'
 import avatarPic from '../../assets/images/Sebas-travel.jpeg'
 import { BsCheckCircleFill } from "react-icons/bs";
-export const Post = () => {
+export const Post = ({post}) => {
+
+
+
     return(
         <section>
             <Container className='timeline'>
                             <Row className='post-user-box'>
                                 <Col xs lg="2">
-                                    <Avatar className='avatar' src={avatarPic} />
+                                    {/* <Avatar className='avatar' src={props.avatarpic} /> */}
                                 </Col>
                                 <Col className='post-user' md="auto">
-                                    <strong><h3>Sebastian Tischner <BsCheckCircleFill /></h3></strong>
-                                    <h6>@sebascrab</h6>
+                                    <strong><h3>{post.user[0].firstName + post.user[0].lastName}<BsCheckCircleFill /></h3></strong>
+                                    <h6>{post.user.username}</h6>
                                 </Col>
                                 
                             </Row>
                             <Row className='post-output'>
                                 <Col className='post-output-text'>
-                                    <h4>Going to be travelling here pretty soon! Can't wait to go back to Taiwan. </h4>
+                                    <h4>{post.postText} </h4>
                                 </Col>
                                 <Col md="auto">
                                 </Col>
                                 <Col xs lg="2">
-                                <p>11/21/22</p>
+                                <p>{post.createdAt}</p>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col>
-                                    <img className='post-output-photo' src={dummyPic1}></img>
+                                    {/* <img className='post-output-photo' src={props.image}></img> */}
                                 </Col>
                                 <Col md="auto">
                                 </Col>

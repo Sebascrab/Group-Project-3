@@ -9,6 +9,7 @@ module.exports = {
 
     getPost(req, res) {
         Post.find()
+        .populate('user')
             .then((post) => res.json(post))
             .catch((err) => res.status(500).json(err));
     }, 
