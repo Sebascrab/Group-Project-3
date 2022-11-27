@@ -1,6 +1,3 @@
-
-
-
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
@@ -9,7 +6,7 @@ const userSchema = new Schema({
 
     firstName: {
         type: String,
-        required: 'Must have a name!',
+        required: 'Must have a first name!',
         trim: true,
         minlength: 1,
         maxlength: 25
@@ -17,7 +14,7 @@ const userSchema = new Schema({
 
     lastName: {
         type: String,
-        required: 'Must have a name!',
+        required: 'Must have a last name!',
         trim: true,
         minlength: 1,
         maxlength: 25
@@ -37,7 +34,7 @@ const userSchema = new Schema({
         type: String,
         required: 'Must have an email!',
         unique: true,
-        match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/]
+        match: [/.+@.+\..+/, "Must match an email address!"],
     },
 
     password: {
@@ -70,24 +67,29 @@ const userSchema = new Schema({
     }
 );
 
-userSchema.pre('save', async function (next) {
-    if (this.isNew || this.isModified('password')) {
-        const saltRounds = 5;
-        this.password = await bcrypt.hash(this.password, saltRounds);
-    }
-    next();
-});
-
-userSchema.methods.isCorrectPassword = async function (password) {
-    return bcrypt.compare(password, this.password);
-};
-
 userSchema
 .virtual('friendCount')
 .get(function () {
     return this.friends.length;
 });
 
+userSchema.pre("save", async function (next){
+    const lowercaseUsername = this.username
+    this.username = lowercaseUsername.toLowerCase()
+    
+    const lowerEmail = this.email
+    this.email = lowerEmail.toLowerCase()
+
+    if (this.isNew || this.isModified("password")) {
+        const rounds = 10;
+        this.password = await bcrypt.hash(this.password, rounds);
+    }
+    next();
+})
+
+userSchema.methods.isCorrectPassword = async function(password) {
+    return await bcrypt.compare(password, this.password)
+}
 
 const User = model('User', userSchema);
 
