@@ -1,0 +1,368 @@
+
+
+.App {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+} */
+
+body {
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  
+  
+  /* color: #fff !important; */
+  
+}
+
+
+
+/* -----Navbar----- */
+#navbarbackground {
+  background: radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%);
+}
+
+#logoImage {
+  max-height: 45px;
+  max-width: 50px;
+}
+
+/* -----Home----- */
+
+/* -----Feed----- */
+.page-banner {
+  position: -webkit-sticky;
+}
+.page-title {
+  size: 60px;
+  color: #282c34;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.feed-header{
+  text-align: center;
+  top: 0;
+  background-color: rgba(181, 237, 236, 0.9);
+  z-index: 100;
+  border: solid;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: transparent;
+}
+
+.feed-header h2 {
+  font-size: 25px;
+  font-weight: 800;
+  color: black;
+}
+
+
+.post-box {
+  padding-bottom: 10px;
+  border: 8px solid;
+  border-color: rgba(181, 237, 236, 0.9); 
+  border-top: none;
+  padding-right: 10px;
+  border-radius: 10px;
+  position: sticky;
+  
+}
+
+.post-box > form{
+  display: flex;
+  flex-direction: column;
+}
+
+.post-box-input {
+  padding: 20px;
+  display: flex;
+}
+
+.post-box-input > input {
+  flex: 1;
+  margin-left: 20px;
+  font-size: 20px;
+  border: none;
+
+}
+
+.post-box-input .avatar {
+  border: transparent;
+  border-radius: 100%;
+}
+
+.post-button{
+  font-weight: 800 !important;
+  border: none !important;
+  width: 150px;
+  margin-top: -10px !important;
+  margin-left: auto !important;
+  border-radius: 30px !important;
+  
+}
+
+.post {
+  margin-top: 30px;
+  padding-top: 15px;
+  padding-left: 15px;
+  border: transparent;
+  background-color: rgba(181, 237, 236, 0.9) ;
+  border-radius: 10px;
+  
+}
+
+.timeline{
+  margin-top: 5%;
+  padding-top: 2%;
+  border-radius: 10px;
+  background-color: rgba(181, 237, 236, 0.9);
+}
+
+.post-user-box {
+  border-bottom: solid;
+  border-color: rgba(24, 42, 41, 0.14);
+  padding-bottom: 2%;
+}
+
+.avatar {
+  border: transparent;
+  border-radius: 100%;
+}
+
+.post-user {
+  padding-top: 3%;
+
+}
+
+.post-output {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 3%;
+}
+
+.post-output-text {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  background-color: rgba(24, 42, 41, 0.14);
+  border-radius: 10px;
+}
+
+.post-output-photo {
+  border: transparent;
+  padding-bottom: 3%;
+  padding-left: 3%;
+}
+
+.post-comment-box {
+  border-top: solid;
+  border-color: rgba(24, 42, 41, 0.14);
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.comment-input {
+  border: transparent;
+  border-radius: 10px;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+/* -----Friends----- */
+
+.friends-header {
+  font-size: 25px;
+  font-weight: 800;
+  color: black;
+  text-align: center;
+  top: 0;
+  background-color: rgba(181, 237, 236, 0.9);
+  z-index: 100;
+  border: solid;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: transparent;
+  margin: 5%;
+}
+
+.friends-box {
+  border-color: rgba(24, 42, 41, 0.14);
+  border: transparent;
+  border-radius: 10px;
+  background-color: rgba(181, 237, 236, 0.9);
+
+}
+
+.friend-profile-item {
+  border-bottom: solid;
+  border-color: rgba(24, 42, 41, 0.14);
+  margin: 1%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+
+
+}
+
+
+
+/* -----Settings----- */
+
+.profile-header {
+  border: transparent;
+  border-radius: 10px;
+  text-align: center;
+  margin: 5%;
+  padding: 2%;
+  background-color: rgba(181, 237, 236, 0.9);
+}
+
+.profile-card {
+  margin: auto;
+  
+}
+
+.profile-body {
+  background-color: rgba(181, 237, 236, 0.9);
+  border: transparent;
+}
+
+.edit-header {
+  border: transparent;
+  border-radius: 10px;
+  text-align: center;
+  margin: 5%;
+  padding: 2%;
+  background-color: rgba(181, 237, 236, 0.9);
+}
+
+.edit-card {
+  margin: auto;
+  border: transparent;
+  border-radius: 10px;
+  background-color: rgba(181, 237, 236, 0.9)
+}
+
+.settings-input {
+  padding: 2%;
+}
+
+.settings-input > input {
+  flex: 1;
+  margin-left: 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+}
+
+.settings-input > strong {
+  font-size: 125%;
+}
+
+.settings-btn {
+  margin-top: 5%;
+  align-content: flex-end;
+  margin: 10%;
+}
+
+/* ----Sign In---- */
+#signInBackground {
+  /* background-image: url(https://source.unsplash.com/random/?party); */
+  background-color: black;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#logoImageLogin {
+  max-height: 100px;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+
+/* -----Sign Up----- */
+#signUpBackground {
+  /* background-image: url(https://source.unsplash.com/random/?wallpaper); */
+  background-color: black;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#logoImageSignUp {
+  max-height: 100px;
+  max-width: 300px;
+  margin: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+
+/* -----Footer----- */
+
+
+.footer {
+  background: radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%);
+  height: 70px;
+  margin-bottom: -50px;
+
+  
+
+}
+
+.footer p {
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
