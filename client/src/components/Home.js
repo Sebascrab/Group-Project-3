@@ -16,7 +16,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { Query_Me } from '../utils/queries';
 import Auth from '../utils/auth';
-
+import { FeedPostInput } from './subcomponents/FeedPostInput';
 
 
 
@@ -39,41 +39,34 @@ export const Home = () => {
     }
     if (user.me.username) {
         return (
-            <section className='h-100' >
+            <section className='min-vh-100' id='homeBg' >
                 <div className='page-banner'>
-                    <h1 className='page-title'><strong>Home</strong></h1>
+                    <h1 className='page-title mb-3 mt-2'><strong className='text-capitalize'>Welcome {user.me.firstName}!</strong></h1>
                 </div>
                 <Container>
 
 
-                    <Row className='align-items-center'>
+
+
+                    <Row className=''>
                         <Col md={2}>
                         </Col>
                         <Col className='scroll' md={8}>
                             <div>
-                                <div className='feed-header'>
-                                    <h2>Feed</h2>
-                                </div>
-                                {/* post */}
-                                <div className='post-box'>
-                                    <form>
-                                        <div className='post-box-input'>
-                                            <Avatar className='avatar' src={avatarPic} />
-                                            <input placeholder="What's Happening"></input>
-                                        </div>
-                                        <Button className='post-button' variant="outline-info">
-                                            Post
-                                        </Button>
-                                    </form>
-                                </div>
+                                <FeedPostInput/>
+                            </div>
+
+
+                            <div className='feed-header mt-3'>
+                                <h2>Feed</h2>
                             </div>
                             {/* Post */}
                             {user.me.posts.length ? (user.me.posts.map((post) => (
-                                <Post key={post._id} post={post}  user={user.me} />
+                                <Post key={post._id} post={post} user={user.me} />
 
-                            )))
-                                : (<div>No Posts Available</div>)
-                        }
+                            )).reverse())
+                                : (<div className='mx-auto align-items-center text-center my-4 vh-100'>No Posts Available</div>)
+                            }
 
                         </Col>
                         <Col md={2}>

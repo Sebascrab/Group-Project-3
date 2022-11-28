@@ -16,11 +16,20 @@ const resolvers = {
             }
             throw new AuthenticationError("Know Your Place Trash.")
         },
-        posts: async (parent, { username }) => {
+        posts: async (parent, { username }, context) => {
             const params = username ? { username } : {}
             return Post.find(params)
                 .populate("comments")
                 .sort({ createdAt: -1 })
+        },
+        userFeed: async (parent, args, context) => {
+            if (context.user) {
+                const feed = await User.findOne({_id: context.user._id})
+                        .populate({path: "friends", populate: "posts"})
+                return feed 
+                    
+            }
+            throw new AuthenticationError("Not Signed In")
         }
     },
 

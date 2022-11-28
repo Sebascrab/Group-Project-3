@@ -12,6 +12,8 @@ type User {
     email: String
     posts: [Post]
     friends: [User]
+    friendCount: Float
+    userFeed: [Post]
 }
 type Post {
     _id: ID
@@ -31,6 +33,7 @@ type Comment {
 type Query {
     me: User
     posts(username: String): [Post]
+    userFeed: User
 }
 type Mutation {
     login(username: String!, password: String!): Auth
