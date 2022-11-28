@@ -24,8 +24,12 @@ const resolvers = {
         },
         userFeed: async (parent, args, context) => {
             if (context.user) {
-                const feed = await User.findOne({_id: context.user._id})
-                        .populate({path: "friends", populate: "posts"})
+                const userData = await User.findOne({_id: context.user._id})
+                            .populate("friends");
+                const friendsList = userData.friends;
+
+                console.log(friendsList);
+                const feed = await Post.find();
                 return feed 
                     
             }

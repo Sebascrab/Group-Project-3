@@ -33,7 +33,7 @@ type Comment {
 type Query {
     me: User
     posts(username: String): [Post]
-    userFeed: User
+    userFeed: [Post]
 }
 type Mutation {
     login(username: String!, password: String!): Auth
