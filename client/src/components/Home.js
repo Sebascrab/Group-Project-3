@@ -39,9 +39,9 @@ export const Home = () => {
     }
     if (user.me.username) {
         return (
-            <section className='h-100' >
+            <section className='h-100' id='homeBg' >
                 <div className='page-banner'>
-                    <h1 className='page-title'><strong>Home</strong></h1>
+                    <h1 className='page-title mb-3 mt-2'><strong className='text-capitalize'>Welcome {user.me.firstName}!</strong></h1>
                 </div>
                 <Container>
 
@@ -72,7 +72,7 @@ export const Home = () => {
                                 <Post key={post._id} post={post}  user={user.me} />
 
                             )))
-                                : (<div>No Posts Available</div>)
+                                : (<div className='mx-auto align-items-center text-center my-4 vh-100'>No Posts Available</div>)
                         }
 
                         </Col>

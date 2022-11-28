@@ -40,8 +40,8 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: 'Must have a password!',
-        match: [/^.{4,8}$/]
-        // Matches any string between 4 and 8 characters in length. Limits the length of a string. Useful to add to password regular expressions.
+        match: [/^.{6,20}$/]
+        // Matches any string between 6 and 20 characters in length. Limits the length of a string. Useful to add to password regular expressions.
     },
 
     posts: [
