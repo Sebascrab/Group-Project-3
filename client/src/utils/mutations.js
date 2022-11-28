@@ -23,7 +23,7 @@ mutation addUser($firstName: String!, $lastName: String!, $username: String!, $e
   }
 `
 
-export const updateUser = gql`
+export const UpdateUser = gql`
 mutation UpdateUser($firstName: String, $lastName: String, $username: String, $email: String, $password: String) {
     updateUser(firstName: $firstName, lastName: $lastName, username: $username, email: $email, password: $password) {
       token
@@ -38,7 +38,7 @@ mutation UpdateUser($firstName: String, $lastName: String, $username: String, $e
   }
 `
 
-export const addPost = gql`
+export const AddPost = gql`
 mutation AddPost($postText: String!) {
     addPost(postText: $postText) {
       _id
@@ -56,15 +56,15 @@ mutation AddPost($postText: String!) {
     }
   }
 `
-export const deletePost = gql`
+export const DeletePost = gql`
 mutation DeletePost($postId: ID) {
     deletePost(postId: $postId) {
       _id
     }
   }
 ` 
-export const addFriend = gql`
-mutation Mutation($username: String!) {
+export const AddFriend = gql`
+mutation AddFriend($username: String!) {
     addFriend(username: $username) {
       _id
       firstName
@@ -73,14 +73,14 @@ mutation Mutation($username: String!) {
     }
   }
 `
-export const deleteFriend = gql`
+export const DeleteFriend = gql`
 mutation DeleteFriend($username: String!) {
     deleteFriend(username: $username) {
       _id
     }
   }
 `
-export const addComment = gql`
+export const AddComment = gql`
 mutation AddComment($postId: ID!, $commentBody: String!) {
     addComment(postId: $postId, commentBody: $commentBody) {
       _id
@@ -91,7 +91,7 @@ mutation AddComment($postId: ID!, $commentBody: String!) {
     }
   }
 `
-export const deleteComment = gql`
+export const DeleteComment = gql`
 mutation DeleteComment($commentId: ID!) {
     deleteComment(commentId: $commentId) {
       _id

@@ -20,6 +20,7 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
+  min-height: 100vh;
   
   
   /* color: #fff !important; */
@@ -69,6 +70,9 @@ body {
   color: black;
 }
 
+.post-delete-btn {
+  background-color: red !important;
+}
 
 .post-box {
   padding-bottom: 10px;
@@ -316,11 +320,8 @@ body {
 
 .footer {
   background: radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%);
-  height: 70px;
-  margin-bottom: -50px;
-
-  
-
+  height: 60px;
+  margin-top: 50px;
 }
 
 .footer p {

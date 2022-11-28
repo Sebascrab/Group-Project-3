@@ -73,6 +73,11 @@ userSchema
     return this.friends.length;
 });
 
+userSchema.virtual('userFeed').get(function () {
+    const feed = this.posts.concat(this.friends.posts);
+    return feed;
+});
+
 userSchema.pre("save", async function (next){
     const lowercaseUsername = this.username
     this.username = lowercaseUsername.toLowerCase()
