@@ -10,9 +10,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
-import userPhoto from "../assets/images/land-rover.jpeg"
 import Logo from "../assets/images/KeepUpLogo.png"
 import Auth from "../utils/auth";
 

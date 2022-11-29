@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Col, Container, Row, Dropdown, Form } from "react-bootstrap"
-import Avatar from 'react-avatar';
 import { Comments } from './comments';
 import { DeleteButton } from './DeleteBtn';
 import { AddComments } from './addComment'

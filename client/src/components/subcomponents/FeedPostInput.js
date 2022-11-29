@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Row, Dropdown, Form, InputGroup } from "react-bootstrap"
-import avatarPic from '../../assets/images/Sebas-dog.jpeg'
-import Avatar from 'react-avatar';
 import { useMutation, gql } from '@apollo/client';
 import { AddPost } from '../../utils/mutations';
 import { Query_Me, Query_UserFeed } from '../../utils/queries';
