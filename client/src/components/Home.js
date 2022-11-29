@@ -17,6 +17,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { Query_Me } from '../utils/queries';
 import Auth from '../utils/auth';
 import { FeedPostInput } from './subcomponents/FeedPostInput';
+import { Feed } from './subcomponents/Feed';
 
 
 
@@ -26,10 +27,13 @@ import { FeedPostInput } from './subcomponents/FeedPostInput';
 export const Home = () => {
 
     const { username: userParam } = useParams();
+    
     const { loading, error, data } = useQuery(Query_Me);
+  
 
 
     const user = data || {};
+
 
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return <Navigate to="/home" />
@@ -37,11 +41,11 @@ export const Home = () => {
     if (loading) {
         return <div>Loading...</div>
     }
-    if (user.me.username) {
+    if (user.me) {
         return (
             <section className='min-vh-100' id='homeBg' >
                 <div className='page-banner'>
-                    <h1 className='page-title mb-3 mt-2'><strong className='text-capitalize'>Welcome {user.me.firstName}!</strong></h1>
+                    <h1 className='page-title mb-3 mt-2'><strong className='text-capitalize'>Hello {user.me.firstName} </strong></h1>
                 </div>
                 <Container>
 
@@ -61,12 +65,8 @@ export const Home = () => {
                                 <h2>Feed</h2>
                             </div>
                             {/* Post */}
-                            {user.me.posts.length ? (user.me.posts.map((post) => (
-                                <Post key={post._id} post={post} user={user.me} />
 
-                            )).reverse())
-                                : (<div className='mx-auto align-items-center text-center my-4 vh-100'>No Posts Available</div>)
-                            }
+                            <Feed/>
 
                         </Col>
                         <Col md={2}>

@@ -6,18 +6,17 @@ import { DeleteButton } from './DeleteBtn';
 
 
 
-const Post = ({ post, user }) => {
+const Post = ({ post }) => {
+
+    console.log(post)
 
     return (
         <section>
             <Container className='timeline' id="post._id">
                 <Row className='post-user-box'>
-                    <Col xs lg="2">
-                        {/* <Avatar className='avatar' src={props.avatarpic} /> */}
-                    </Col>
                     <Col className='post-user' md="auto">
-                        <strong><h3>{user.firstName + " " + user.lastName}</h3></strong>
-                        <h6>{user.username}</h6>
+                        <strong><h3 className='text-capitalize'>{post.user.firstName + " " + post.user.lastName}</h3></strong>
+                        <h6 className='font-italic'>@{post.user.username}</h6>
                     </Col>
 
                 </Row>
@@ -42,8 +41,12 @@ const Post = ({ post, user }) => {
                 </Row>
 
 
-
-                <Comments/>
+                {post.comments.length ? (post.comments.map((comment) => (
+                    <Comments key={comment._id} comments={comment}/>
+                )))
+                    : (<div></div>)
+            }
+                
                 <DeleteButton/>
              
             </Container>
