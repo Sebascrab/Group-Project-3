@@ -48,11 +48,7 @@ export const Home = () => {
                     <h1 className='page-title mb-3 mt-2'><strong className='text-capitalize'>Hello {user.me.firstName} </strong></h1>
                 </div>
                 <Container>
-
-
-
-
-                    <Row className=''>
+                     <Row className=''>
                         <Col md={2}>
                         </Col>
                         <Col className='scroll' md={8}>
