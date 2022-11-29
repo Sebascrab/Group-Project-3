@@ -55,10 +55,11 @@ mutation AddPost($postText: String!) {
 `
 export const DeletePost = gql`
 mutation DeletePost($postId: ID) {
-    deletePost(postId: $postId) {
-      _id
-    }
+  deletePost(postId: $postId) {
+    _id
+    postText
   }
+}
 ` 
 export const AddFriend = gql`
 mutation AddFriend($username: String!) {

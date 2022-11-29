@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Row, Dropdown, Form } from "react-bootstrap"
-import { useMutation } from '@apollo/client';
+import { useMutation, gql } from '@apollo/client';
 import { AddComment } from '../../utils/mutations';
 import { Query_UserFeed } from '../../utils/queries';
 
@@ -10,23 +10,31 @@ export const AddComments = (postId) => {
     const [addComment, { error }] = useMutation(AddComment, {
         update(cache, { data: { addComment } }) {
             try {
-                const { userFeed } = cache.readQuery({ query: Query_UserFeed })
-                const updatedUserFeed = userFeed.map((post) => {
-                    if (post._id === postId.postId) {
-                        return { ...post, comments: [...post.comments, addComment] }
+                cache.modify({
+                    fields: {
+                        userFeed(existingUserFeed = []) {
+                            const newCommentRef = cache.writeFragment({
+                                data: addComment,
+                                fragment: gql`
+                                fragment NewComment on Comment {
+                                    _id
+                                    commentBody
+                                    createdAt
+                                    user {
+                                        _id
+                                        firstName
+                                        lastName
+                                        username
+                                    }
+                                }`
+                            })
+                            return [...existingUserFeed, newCommentRef]
+                        }
                     }
-                    return post
-                }
-                )
-                cache.writeQuery({
-                    query: Query_UserFeed,
-                    data: { userFeed: updatedUserFeed }
                 })
-                
-                console.log({userFeed});``
 
-            } catch (error) {
-                console.warn("No Cache Found")
+            } catch (e) {
+                console.warn("No Cache Found", error)
             }
         }
     })
@@ -42,7 +50,7 @@ export const AddComments = (postId) => {
             await addComment({
                 variables: { ...inputState }
             })
-            setInputState({ commentBody: "", postId: "" })
+            setInputState({ commentBody: "", postId: postId.postId })
         } catch (error) {
             console.error(error);
         }

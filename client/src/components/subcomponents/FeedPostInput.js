@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Col, Container, Row, Dropdown, Form, InputGroup } from "react-bootstrap"
 import avatarPic from '../../assets/images/Sebas-dog.jpeg'
 import Avatar from 'react-avatar';
-import { enableExperimentalFragmentVariables, useMutation } from '@apollo/client';
+import { useMutation, gql } from '@apollo/client';
 import { AddPost } from '../../utils/mutations';
 import { Query_Me, Query_UserFeed } from '../../utils/queries';
 
@@ -14,12 +14,28 @@ export const FeedPostInput = () => {
     const [addPost, { error }] = useMutation(AddPost, {
         update(cache, { data: { addPost } }) {
             try {
-
-                const { userFeed } = cache.readQuery({ query: Query_UserFeed })
-                
-                cache.writeQuery({
-                    query: Query_UserFeed,
-                    data: { userFeed: { ...userFeed, addPost } }
+                cache.modify({
+                    fields: {
+                        userFeed(existingUserFeed = []) {
+                            const newPostRef = cache.writeFragment({
+                                data: addPost,
+                                fragment: gql`
+                                fragment NewPost on Post {
+                                    _id
+                                    createdAt
+                                    postText
+                                    user {
+                                        _id
+                                        firstName
+                                        lastName
+                                        username
+                                    }
+                                }
+                            `
+                            })
+                            return [...existingUserFeed, newPostRef]
+                        }
+                    }
                 })
 
             } catch (error) {

@@ -28,8 +28,6 @@ export const Friends = () => {
 
     const user = data || {};
 
-    console.log(user)
-
 
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return <Navigate to="/home" />
