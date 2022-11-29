@@ -23,5 +23,8 @@
   "homepage": "https://github.com/TommyAlv/KeepUp#readme",
   "devDependencies": {
     "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
