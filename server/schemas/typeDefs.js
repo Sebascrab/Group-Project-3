@@ -13,13 +13,12 @@ type User {
     posts: [Post]
     friends: [User]
     friendCount: Float
-    userFeed: [Post]
 }
 type Post {
     _id: ID
     postText: String
     createdAt: String
-    username: String
+    user: User
     comments: [Comment]
     commentCount: Float
 }
@@ -27,13 +26,12 @@ type Comment {
     _id: ID
     postId: String
     commentBody: String
-    username: String
+    user: User
     createdAt: String
 }
 type Query {
     me: User
-    posts(username: String): [Post]
-    userFeed: User
+    userFeed: [Post]
 }
 type Mutation {
     login(username: String!, password: String!): Auth

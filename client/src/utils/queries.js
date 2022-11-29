@@ -8,43 +8,42 @@ export const Query_Me = gql`
     lastName
     username
     email
-    posts {
-      _id
-      postText
-      createdAt
-      username
-      comments {
-        _id
-        postId
-        commentBody
-        username
-        createdAt
-      }
-      commentCount
-    }
     friends {
-        _id
-        firstName
-        lastName
-        username
-        email
-        posts {
-          _id
-          postText
-          createdAt
-          username
-          comments {
-            _id
-            postId
-            username
-            createdAt
-            commentBody
-          }
-          commentCount
-        }
-      }
+      _id
+      firstName
+      lastName
+      username
+    }
+    friendCount
   }
 }
 
 `
+export const Query_UserFeed = gql`
+{
+  userFeed {
+    _id
+    postText
+    createdAt
+    user {
+      _id
+      username
+      firstName
+      lastName
+    }
+    comments {
+      _id
+      commentBody
+      user {
+        _id
+        username
+        firstName
+        lastName
+      }
+      createdAt
+    }
+  }
+}
+`
+
 

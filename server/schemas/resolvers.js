@@ -10,25 +10,37 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select("-__v -password")
-                    .populate({ path: "posts", populate: "comments" })
+                    .populate({ path: "posts", options: { sort: { createdAt: -1 } }, populate: "comments" })
                     .populate("friends");
                 return userData;
             }
             throw new AuthenticationError("Know Your Place Trash.")
         },
-        posts: async (parent, { username }, context) => {
-            const params = username ? { username } : {}
-            return Post.find(params)
-                .populate("comments")
-                .sort({ createdAt: -1 })
-        },
+
+        // Leaving commented out, a query for a future admin.
+        // posts: async (parent, args, context) => {
+        //     return Post.find()
+        //         .populate("user")
+        //         .populate("comments")
+        //         .sort({ createdAt: -1 })
+        // },
         userFeed: async (parent, args, context) => {
             if (context.user) {
-                const feed = await User.findOne({_id: context.user._id})
-                        .populate({path: "friends", populate: "posts"})
-                return feed 
-                    
+                const userData = await User.findOne({ _id: context.user._id })
+                    .populate("friends");
+                // get all the friends username of the user
+                const friends = userData.friends.map(friend => friend._id);
+                friends.push(userData._id);
+                // get posts from friends plus the user
+                const feed = await Post.find({ user: { $in: friends } })
+                    .populate("user")
+                    .populate({ path: "comments", options: { sort: { createdAt: -1 } }, populate: "user" })
+                    .sort({ createdAt: -1 });
+
+                return feed
+
             }
+
             throw new AuthenticationError("Not Signed In")
         }
     },
@@ -67,7 +79,7 @@ const resolvers = {
         },
         addPost: async (parent, args, context) => {
             if (context.user) {
-                const post = await Post.create({ ...args, username: context.user.username })
+                const post = await Post.create({ ...args, user: context.user._id })
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
                     { $push: { posts: post._id } },
@@ -125,7 +137,7 @@ const resolvers = {
         },
         addComment: async (parent, args, context) => {
             if (context.user) {
-                const comment = await Comment.create({ postId: args.postId, commentBody: args.commentBody, username: context.user.username });
+                const comment = await Comment.create({ postId: args.postId, commentBody: args.commentBody, user: context.user._id });
                 const post = await Post.findByIdAndUpdate(
                     { _id: args.postId },
                     { $push: { comments: comment._id } },
@@ -140,7 +152,7 @@ const resolvers = {
                 const comment = await Comment.findById(
                     { _id: args.commentId }
                 )
-                if (comment.username == context.user.username) {
+                if (comment.user._id == context.user._id) {
                     const post = await Post.findByIdAndUpdate(
                         { _id: comment.postId },
                         { $pull: { comments: comment._id } },

@@ -3,7 +3,10 @@ import { Button, Col, Container, Row, Dropdown, Form } from "react-bootstrap"
 
 
 
-export const Comments = () => {
+export const Comments = ({comments}) => {
+
+    console.log(comments)
+
     return (
         <Row className='post-comment-box'>
             <Col>
@@ -14,16 +17,8 @@ export const Comments = () => {
 
                     <Dropdown.Menu>
                         <Dropdown.Item>
-                            <strong>Tommy</strong>
-                            <p>Nice, have fun!</p>
-                        </Dropdown.Item>
-                        <Dropdown.Item>
-                            <strong>Abel</strong>
-                            <p>Smh, looks boring tbh!</p>
-                        </Dropdown.Item>
-                        <Dropdown.Item>
-                            <strong>Ryan</strong>
-                            <p>Where the ladies at..?</p>
+                            <strong>{comments.user.firstName}</strong>
+                            <p>{comments.commentBody}</p>
                         </Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
