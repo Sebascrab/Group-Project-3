@@ -3,19 +3,18 @@ import { Button, Col, Container, Row, Dropdown, Form } from "react-bootstrap"
 import Avatar from 'react-avatar';
 import { Comments } from './comments';
 import { DeleteButton } from './DeleteBtn';
+import { AddComments } from './addComment'
 
 
 
 const Post = ({ post }) => {
-
-    console.log(post)
 
     return (
         <section>
             <Container className='timeline' id="post._id">
                 <Row className='post-user-box'>
                     <Col className='post-user' md="auto">
-                        <strong><h3 className='text-capitalize'>{post.user.firstName + " " + post.user.lastName}</h3></strong>
+                        <div className='text-capitalize'>{post.user.firstName + " " + post.user.lastName}</div>
                         <h6 className='font-italic'>@{post.user.username}</h6>
                     </Col>
 
@@ -40,15 +39,33 @@ const Post = ({ post }) => {
                     </Col>
                 </Row>
 
+                <Row className='post-comment-box'>
+                    <Col>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="info" id="dropdown-basic">
+                                Comments
+                            </Dropdown.Toggle>
 
-                {post.comments.length ? (post.comments.map((comment) => (
-                    <Comments key={comment._id} comments={comment}/>
-                )))
-                    : (<div></div>)
-            }
-                
-                <DeleteButton/>
-             
+                            <Dropdown.Menu>
+                                {post.comments.length ? (post.comments.map((comment) => (
+
+                                    <Comments key={comment._id} comments={comment} />
+
+                                )))
+                                    : (<Dropdown.Item>
+                                       <p>No Comments</p>
+                                    </Dropdown.Item>)
+                                }
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Col>
+
+                    <AddComments key={post._id} postId={post._id}/>
+
+                </Row>
+
+                {/* <DeleteButton/> */}
+
             </Container>
         </section>
     )

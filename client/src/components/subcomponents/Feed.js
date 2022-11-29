@@ -13,8 +13,6 @@ export const Feed = () => {
 
     const feed = data || {};
 
-    console.log(feed)
-
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return <Navigate to="/home" />
     }

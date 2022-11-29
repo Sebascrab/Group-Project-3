@@ -40,21 +40,18 @@ mutation UpdateUser($firstName: String, $lastName: String, $username: String, $e
 
 export const AddPost = gql`
 mutation AddPost($postText: String!) {
-    addPost(postText: $postText) {
+  addPost(postText: $postText) {
+    _id
+    createdAt
+    postText
+    user {
       _id
+      firstName
+      lastName
       username
-      postText
-      createdAt
-      comments {
-        _id
-        postId
-        commentBody
-        username
-        createdAt
-      }
-      commentCount
     }
   }
+}
 `
 export const DeletePost = gql`
 mutation DeletePost($postId: ID) {
@@ -82,14 +79,19 @@ mutation DeleteFriend($username: String!) {
 `
 export const AddComment = gql`
 mutation AddComment($postId: ID!, $commentBody: String!) {
-    addComment(postId: $postId, commentBody: $commentBody) {
+  addComment(postId: $postId, commentBody: $commentBody) {
+    _id
+    postId
+    commentBody
+    user {
       _id
-      postId
-      commentBody
+      firstName
+      lastName
       username
-      createdAt
     }
+    createdAt
   }
+}
 `
 export const DeleteComment = gql`
 mutation DeleteComment($commentId: ID!) {
