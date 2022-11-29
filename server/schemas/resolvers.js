@@ -94,7 +94,10 @@ const resolvers = {
                 const post = await Post.findById(
                     { _id: postId }
                 )
-                if (post.username == context.user.username) {
+                    .populate("user")
+                    
+
+                if (post.user.username == context.user.username) {
                     const comments = post.comments
                     comments.forEach(async comment => {
                         await Comment.findByIdAndDelete(

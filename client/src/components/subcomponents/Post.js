@@ -4,10 +4,16 @@ import Avatar from 'react-avatar';
 import { Comments } from './comments';
 import { DeleteButton } from './DeleteBtn';
 import { AddComments } from './addComment'
+import { useParams } from 'react-router-dom';
+import Auth from '../../utils/auth';
 
 
 
 const Post = ({ post }) => {
+
+    const username = Auth.getProfile().data.username
+    
+
 
     return (
         <section>
@@ -64,6 +70,8 @@ const Post = ({ post }) => {
 
                 </Row>
 
+
+               {username == post.user.username ? (<DeleteButton postId={post._id}/>) : (<></>)}
                 {/* <DeleteButton/> */}
 
             </Container>
