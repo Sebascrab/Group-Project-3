@@ -30,13 +30,10 @@ export const Nbar = () => {
         <Navbar.Brand>
           <img src={Logo} className="" id="logoImage" alt='Logo' />
         </Navbar.Brand>
-        <Navbar.Brand id="avatar">
-          <Avatar alt="User" src={userPhoto} />
-        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <i className="fa-solid fa-bars"></i>
         </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-ngit push --set-upstream origin friendspopulatedav">
           <Nav className="ms-auto">
             {Auth.loggedIn() ? (
               <>

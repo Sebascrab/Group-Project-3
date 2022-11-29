@@ -8,10 +8,21 @@ export const Query_Me = gql`
     lastName
     username
     email
+    posts {
+      _id
+      postText
+      createdAt
+      user {
+        _id
+        firstName
+        lastName
+        username
+      }
+    }
     friends {
       _id
-      firstName
       lastName
+      firstName
       username
     }
     friendCount

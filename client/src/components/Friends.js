@@ -5,6 +5,9 @@
 
 import Avatar from "react-avatar"
 import { Col, Row, Container } from "react-bootstrap"
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import avatarPic from "../assets/images/Sebas-dog.jpeg"
 import { FriendCard } from "./subcomponents/FriendCard"
 import { Navigate, useParams } from "react-router"
@@ -23,8 +26,9 @@ export const Friends = () => {
 
 
 
-    const user = data|| {};
-    const mee = user.me || {};
+    const user = data || {};
+
+    console.log(user)
 
 
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -34,8 +38,6 @@ export const Friends = () => {
         return <div>Loading...</div>
     }
     if (user.me) {
-
-        console.log(user)
 
         return (
 
@@ -51,21 +53,32 @@ export const Friends = () => {
                         </Col>
                         <Col md={8}>
                             <div>
-                                <div className="friends-header">
+                                <div className="friends-header mt-2">
                                     <h2>Your Friends</h2>
                                 </div>
+                                <div>
+                                    <InputGroup className="my-2 add-friend-input">
+                                        <Form.Control
+                                            className="rounded"
+                                            placeholder="Username"
+                                            aria-label="Username to add friend"
+                                            aria-describedby="add friend"
+                                        />
+                                        <Button className="add-friend-button" size="sm">
+                                            Add Friend
+                                        </Button>
+                                    </InputGroup>
+                                </div>
                                 <div className="friends-box">
-                                    <Container className="friends-list">
+                                    <Row className="mt-4 row-cols-3">
 
-                                        {mee.friends.length ? (user.me.friends.map((friend) => (
-                                             <FriendCard key={mee._id} friend={friend}/>
+                                        {user.me.friends.length ? (user.me.friends.map((friend) => (
+                                            <FriendCard key={friend._id} friend={friend} />
                                         )))
                                             : (<div> No Friends, sorry.</div>)
-                                    }
+                                        }
 
-                                  
-                                  
-                                    </Container>
+                                    </Row>
                                 </div>
                             </div>
                         </Col>

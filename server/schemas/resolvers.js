@@ -10,7 +10,7 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select("-__v -password")
-                    .populate({ path: "posts", options: { sort: { createdAt: -1 } }, populate: "comments" })
+                    .populate({ path: "posts", options: { sort: { createdAt: -1 } }, populate: "user" })
                     .populate("friends");
                 return userData;
             }
@@ -85,7 +85,7 @@ const resolvers = {
                     { $push: { posts: post._id } },
                     { new: true }
                 )
-                return post;
+                return post.populate("user");
             }
             throw new AuthenticationError("You're Not Signed In! Get on that.")
         },
