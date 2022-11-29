@@ -124,7 +124,7 @@ const resolvers = {
                     { $push: { friends: friend._id } },
                     { new: true }
                 )
-                return me;
+                return me.populate("friends");
             }
         },
         deleteFriend: async (parent, { username }, context) => {

@@ -60,16 +60,22 @@ mutation DeletePost($postId: ID) {
     postText
   }
 }
-` 
+`
 export const AddFriend = gql`
-mutation AddFriend($username: String!) {
-    addFriend(username: $username) {
+mutation Mutation($username: String!) {
+  addFriend(username: $username) {
+    _id
+    firstName
+    lastName
+    username
+    friends {
       _id
       firstName
       lastName
       username
     }
   }
+}
 `
 export const DeleteFriend = gql`
 mutation DeleteFriend($username: String!) {
