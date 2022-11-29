@@ -3,12 +3,9 @@
 // Remove Friend Option
 // -- RYAN
 import React, { useState } from 'react';
-import Avatar from "react-avatar"
 import { Col, Row, Container } from "react-bootstrap"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import avatarPic from "../assets/images/Sebas-dog.jpeg"
 import { FriendCard } from "./subcomponents/FriendCard"
 import { Navigate, useParams } from "react-router"
 import { useQuery, useMutation, gql } from "@apollo/client"

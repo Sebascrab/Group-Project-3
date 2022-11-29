@@ -8,8 +8,6 @@
 import '../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Col, Container, Row, Dropdown, Form, InputGroup } from "react-bootstrap"
-import avatarPic from '../assets/images/Sebas-dog.jpeg'
-import Avatar from 'react-avatar';
 import Post from "./subcomponents/Post"
 import React, { useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
