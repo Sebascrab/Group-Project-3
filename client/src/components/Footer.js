@@ -22,7 +22,13 @@ export const Footer = () => {
                         <div className="social-icon">
                            
                         </div>
-                        <p>Made with love by Tommy, Abel, Ryan, and Sebastian <a href="" target="_blank"></a></p>
+                        <p>
+                            <strong>Keep Up &nbsp;</strong>By 
+                            <a href="https://github.com/TommyAlv" target="_blank"> Tommy, </a>
+                            <a href="https://github.com/Sebascrab" target="_blank">Sebastian, </a>
+                            <a href="https://github.com/ryancharleson" target="_blank">Ryan, </a>
+                            <a href="https://github.com/AbelitoG" target="_blank">and Abel.</a>
+                        </p>
                     </Col>
                 </Row>
             </Container>
