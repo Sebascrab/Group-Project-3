@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/Sebascrab/Group-Project-3/#readme",
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "debug": "^4.3.4"
   },
   "dependencies": {
     "@apollo/server": "^4.2.2",
