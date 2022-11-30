@@ -14,11 +14,11 @@ export const FriendCard = ({ friend }) => {
                     <h5 className="mb-0">{friend.firstName + " " + friend.lastName}</h5>
                     <span className="small text-uppercase text-muted">@{friend.username}</span>
                     <ul className="social mb-0 list-inline mt-3">
-                        <li className="list-inline-item">
+                        {/* <li className="list-inline-item">
                             <a href="#" className="social-link">
                                 <i className="fa-sharp fa-solid fa-trash"></i>
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>
