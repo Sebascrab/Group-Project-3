@@ -38,7 +38,7 @@ export const Settings = () => {
                                 <h3><strong>Update Profile</strong></h3>
                             </div>
                             <Row className="px-4">
-                                <Container className="card bg-dark text-white" xs={12} md={8}>
+                                <Container className="edit-card" xs={12} md={8}>
                                     <Row >
                                         <Row className="settings-input">
                                             <strong>First Name:</strong>
