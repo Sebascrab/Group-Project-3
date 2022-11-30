@@ -1,6 +1,11 @@
 {
   "name": "group-project-3",
   "version": "0.1.0",
+  "engines": {
+    "node": "13.1.0",
+    "npm": "6.12.1",
+    "yarn": "1.19.1"
+  },
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
@@ -35,10 +40,6 @@
       "react-app",
       "react-app/jest"
     ]
-  },
-  "engines": {
-    "npm": ">=8.0.0 <9.0.0",
-    "node": ">=16.0.0 <17.0.0"
   },
   "browserslist": {
     "production": [

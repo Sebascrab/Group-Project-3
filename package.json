@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server/server.js",
+  "engines": {
+    "node": "13.1.0",
+    "npm": "6.12.1",
+    "yarn": "1.19.1"
+  },
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
@@ -24,10 +29,6 @@
   "devDependencies": {
     "concurrently": "^7.6.0",
     "netlify-cli": "^12.2.7"
-  },
-  "engines": {
-    "npm": ">=8.0.0 <9.0.0",
-    "node": ">=16.0.0 <17.0.0"
   },
   "dependencies": {
     "express": "^4.18.2"
