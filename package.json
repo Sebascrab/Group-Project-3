@@ -13,7 +13,6 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm install && cd ../client && npm install",
     "i": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
   "repository": {
