@@ -19,7 +19,7 @@ const Post = ({ post }) => {
             <Container className='timeline' id="post._id">
                 <Row className='post-user-box'>
                     <Col className='post-user' md="auto">
-                        <div className='text-capitalize'>{post.user.firstName + " " + post.user.lastName}</div>
+                        <h2 className='text-capitalize'>{post.user.firstName + " " + post.user.lastName}</h2>
                         <h6 className='font-italic'>@{post.user.username}</h6>
                     </Col>
 
@@ -47,7 +47,7 @@ const Post = ({ post }) => {
                 <Row className='post-comment-box'>
                     <Col>
                         <Dropdown>
-                            <Dropdown.Toggle variant="info" id="dropdown-basic">
+                            <Dropdown.Toggle variant="" id="dropdown-basic">
                                 Comments
                             </Dropdown.Toggle>
 

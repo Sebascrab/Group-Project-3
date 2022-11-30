@@ -56,7 +56,7 @@ export const Friends = () => {
                                    <AddFriendInput />
                                 </div>
                                 <div className="friends-box">
-                                    <Row className="mt-4 row-cols-3">
+                                    <Row className="mt-4 row-cols-3 sm-row-cols-1">
 
                                         {user.me.friends.length ? (user.me.friends.map((friend) => (
                                             <FriendCard key={friend._id} friend={friend} />

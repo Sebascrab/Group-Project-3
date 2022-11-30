@@ -56,7 +56,7 @@ export const Home = () => {
 
 
                             <div className='feed-header mt-3'>
-                                <h2>Feed</h2>
+                                <h2>What Your Friends Are Saying...</h2>
                             </div>
                             {/* Post */}
 

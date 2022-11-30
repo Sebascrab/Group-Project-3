@@ -10,7 +10,7 @@ export const FriendCard = ({ friend }) => {
 
         <div className="mt-3">
             <div className="">
-                <div className="bg-white rounded-9 shadow-sm py-5 px-4">
+                <div className="bg-white rounded-9 shadow-lg py-5 px-4">
                     <h5 className="mb-0">{friend.firstName + " " + friend.lastName}</h5>
                     <span className="small text-uppercase text-muted">@{friend.username}</span>
                     <ul className="social mb-0 list-inline mt-3">
