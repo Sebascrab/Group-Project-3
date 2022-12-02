@@ -1,63 +1,54 @@
-# Getting Started with KeepUp
-## Available Scripts
+# Keep Up
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  ## ReadMe Description 
 
-In the project directory, you can run:
+  This is a social media applicaiton where users can log in, and start posting! Users can comment and delete their own posts as well. This was a group project made with Tommy, Ryan, Abel, and Sebastian.  
+  ## Table of Contents: 
 
-### `npm run develop`
+  * [Installation](#installation) 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  * [Contributors](#contributors) 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  * [Usage](#usage) 
 
-### `npm run build`
+  * [Tests](#tests) 
 
-Builds the app for production to the `build` folder.\
-Must be run in client folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  * [License](#license) 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  ## Name: 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  Sebastian Tischner
 
-### `npm run eject`
+  ## Installation 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  No installation needed. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ## Contributors 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  Fork Repo and request pull request. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  ## Usage 
 
-## Learn More
+  Sign up, login, and post! 
+   
+  ## Tests 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  No tests
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  ## License 
+ 
+  This project is protected by the MIT license.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  Github: [Sebascrab](https://github.com/Sebascrab) 
 
-### Analyzing the Bundle Size
+  Email: alexanders.tischner@outlook.com  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  ![Image Of Application](client/src/assets/images/Keep-Up-Screenshot.png)
 
-### Making a Progressive Web App
+  Deployed Link: [Keep Up](https://keep-up-project-3.herokuapp.com/) 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  
 
-### Advanced Configuration
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
